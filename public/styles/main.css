@@ -1,0 +1,375 @@
+/* <! google fonts !> */
+
+@import url("https://fonts.googleapis.com/css2?family=Cute+Font&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+/* // main basic rules */
+* {
+
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* // header  */
+.navbar {
+    display: flex;
+    justify-content: center;
+    background: rgb(0, 141, 218);
+    background: radial-gradient(circle, rgba(0, 141, 218, 1) 0%, rgba(65, 201, 226, 1) 30%, rgba(172, 226, 225, 0.8184407552083334) 70%, rgba(247, 238, 221, 1) 100%);
+}
+
+/* // LOGO */
+.applogo {
+    cursor: pointer;
+    transition: 0.4s ease;
+}
+
+.applogo:hover {
+    background-color: rgba(196, 232, 255, 0.6);
+    border-radius: 60px;
+}
+
+/* // BODY */
+body {
+    min-height: 100vh;
+    background: rgb(0, 141, 218);
+    background: radial-gradient(circle, rgba(0, 141, 218, 1) 0%, rgba(65, 201, 226, 1) 30%, rgba(172, 226, 225, 0.8184407552083334) 70%, rgba(247, 238, 221, 1) 100%);
+}
+
+.main {
+    width: 100%;
+    height: 100vh;
+
+}
+
+/* // main app section */
+.app_section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+
+
+}
+
+.app_container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    background: rgb(247, 238, 221);
+    background: radial-gradient(circle, rgba(247, 238, 221, 1) 0%, rgba(172, 226, 225, 1) 30%, rgba(0, 141, 218, 1) 70%, rgba(65, 201, 226, 1) 100%);
+    border-radius: 20px;
+    border-style: solid;
+    border-color: #4c4c4c;
+    box-sizing: border-box;
+
+}
+
+/* //left side bar */
+.side-card {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 30%;
+    height: 95vh;
+    background: rgb(217, 217, 217, 0.6);
+    box-sizing: border-box;
+    border-radius: 18px;
+    margin-left: 1px;
+}
+
+/* // search bar */
+.search {
+
+    display: flex;
+    align-items: center;
+    max-width: max-content;
+    padding: 10px;
+    border-radius: 20px;
+    background: rgb(220, 220, 220, 0.6);
+    margin: 10px;
+}
+
+.search-bar {
+    width: 70%;
+    position: relative;
+}
+
+.search-bar input {
+    font-size: 16px;
+    font-weight: 500;
+    font-family: istok web;
+    color: #333333;
+    margin: auto 6px;
+    outline: none;
+    border: none;
+    background: transparent;
+    width: 80%;
+}
+
+.search-bar i {
+    margin: auto 10px;
+    font-size: 25px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.search-bar button {
+    background: transparent;
+    outline: none;
+    border: none;
+}
+
+/* // First Top Results */
+.top_results {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: istok web;
+    font-weight: 700;
+    margin: 5px;
+}
+
+.current_temp {
+    font-size: 45px;
+    color: #585858;
+}
+
+/* // horizontal line */
+.side-card hr {
+    opacity: 80%;
+    min-height: 3px;
+    width: 75%;
+    margin: 5px auto;
+    background: #243627;
+}
+
+/* // 6 DAYS FORECAST */
+.days_forecast {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: istok web;
+    font-weight: 700;
+    margin: 5px 5px 2px 5px;
+}
+
+.day {
+    position: relative;
+    display: flex;
+    margin: auto;
+    align-items: center;
+}
+
+.day img {
+  width: 20%;
+  height: 100%;
+}
+
+.dayAndCondition {
+    display: flex;
+    margin: 10px 50px 10px 50px;
+    align-items: center;
+    flex-direction: column;
+}
+
+.dailyTemp {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* // hourly conditions and 6 hours forecast */
+.hourly-conditions {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 1px auto 30px 10px;
+    left: 0;
+}
+
+.hourly-conditions #current-condition {
+    font-size: 100px;
+    font-weight: 500;
+    font-family: istok web;
+    color: azure;
+    padding-bottom: 5px;
+    margin: auto auto 0 5px;
+}
+
+.hourly-conditions hr {
+    opacity: 80%;
+    min-height: 3px;
+    width: 90%;
+    margin: 5px auto;
+    background: azure;
+}
+
+/* // hourly forecast  */
+
+.hourly_forecast {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin: 5px;
+}
+
+.hourly-card {
+    background: rgba(153, 153, 153, 0.4);
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.hours {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.hours hr {
+    opacity: 90%;
+    min-height: 3px;
+    width: 120%;
+    margin: 5px;
+    background: #ffffff;
+}
+
+.hours .time {
+    font-size: 24px;
+    font-weight: 500;
+    font-family: istok web;
+    color: rgb(219, 255, 255);
+    margin: 8px auto;
+}
+
+.hours .current-condition {
+    font-size: 60px;
+    color: rgb(219, 255, 255);
+
+}
+
+.hours .live-temp {
+    font-size: 24px;
+    font-weight: 500;
+    font-family: istok web;
+    color: rgb(219, 255, 255);
+    margin: 5px auto;
+}
+
+/* //clock-date */
+
+.date_clock_container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.11);
+    backdrop-filter: blur;
+    border-radius: 5px;
+    margin: 20px 100px auto auto;
+    padding: 0 9px;
+
+}
+
+.clock {
+    font-size: 20px;
+    font-weight: 600;
+    font-family: Istok Web;
+    color: rgb(219, 255, 255);
+}
+.clock span {
+    margin: 2px;
+}
+
+/* // footer */
+.footer {
+    background: rgb(0, 141, 218);
+    background: radial-gradient(circle, rgba(0, 141, 218, 1) 0%, rgba(65, 201, 226, 1) 30%, rgba(172, 226, 225, 1) 70%, rgba(247, 238, 221, 1) 100%);
+    padding: 0.5rem;
+    font-family: istok web;
+    font-weight: 700;
+    font-size: 20px;
+    width: 100%;
+    left: 0;
+    position: relative;
+    bottom: 0;
+
+}
+
+.footer a {
+    color: #243627;
+    text-decoration: none;
+    margin-left: 4px;
+    margin-right: 4px
+}
+
+.footer a:hover {
+    color: #ffffff;
+    transition: 0.4s ease;
+}
+
+.footer_container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.footer_links {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px 40px auto;
+}
+
+.footer_hr {
+    opacity: 80%;
+    min-height: 3px;
+    width: 75%;
+    margin: 5px auto;
+    background: #243627;
+}
+
+.footer_bottom {
+    color: #243627;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    bottom: 0;
+}
+
+.footer_bottom p {
+    margin: auto 10px;
+    font-size: 17px;
+}
+
+.footer_bottom a {
+    margin: auto 10px;
+    font-size: 25px;
+    align-items: center;
+}
+
+/* media queries - medium devices 768px */
+
+/* //footer media query */
+@media only screen and (max-aspect-ratio: 16/9) {
+
+    .footer_links {
+        flex-direction: column;
+        align-items: center;
+        max-width: 90%;
+        max-height: 90%;
+
+    }
+
+    .footer_links img {
+        order: 1;
+        max-width: 50%;
+        max-height: 50%;
+    }
+}

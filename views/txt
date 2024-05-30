@@ -1,0 +1,165 @@
+ <% if (locals.currentWeather){ %>
+                    <div id="current-condition"><!-- current condition -->
+                        <span id="current-condition"><%= currentConditions %> </span> </div>
+                    <hr>
+                    <% } %>
+                    <% if (locals.forecastHourlyData) { %>
+                        <% forecastHourlyData.forEach(function(hour, index) { %>
+                            <div class="hourly_forecast"> <!-- 9 hours forecast -->
+                                <div class="hourly-card">
+                                    <div class="hours">
+                                        <div class="time">
+                                            <span id="hour<%= index + 1 %>">
+                                                <%= hour.hourlyForcastData %>:00
+                                            </span>
+                                        </div>
+                                        <hr>
+                                        <div class="current-condition">
+                                            <i class="fa-regular fa-snowflake"></i>
+                                        </div>
+                                        <div class="live-temp">
+                                            <span id="current_temp"><i class="fa-solid fa-temperature-low">
+                                                    <%= Math.round(hour.minimumHourlyTemp) %>&deg;C
+                                                </i></span>
+                                            <span id="current_temp"><i class="fa-solid fa-temperature-high">
+                                                    <%= Math.round(hour.maximumHourlyTemp) %>&deg;C
+                                                </i></span>
+    
+                                        </div>
+                                    </div>
+                                </div>
+                                <% }); %>
+                                    <% } %>
+                                        <!-- <div class="hourly-card">
+                            <div class="hours">
+                                <div class="time">
+                                    <span id="time">Time</span>
+                                </div>
+                                <hr>
+                                <div class="current-condition">
+                                    <i class="fa-regular fa-snowflake"></i>
+                                </div>
+                                <div class="live-temp">
+                                    <span id="current_temp">-2°C</span>
+                                    </i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hourly-card">
+                            <div class="hours">
+                                <div class="time">
+                                    <span id="time">Time</span>
+                                </div>
+                                <hr>
+                                <div class="current-condition">
+                                    <i class="fa-regular fa-snowflake"></i>
+                                </div>
+                                <div class="live-temp">
+                                    <span id="current_temp">-2°C</span>
+                                    </i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hourly-card">
+                            <div class="hours">
+                                <div class="time">
+                                    <span id="time">Time</span>
+                                </div>
+                                <hr>
+                                <div class="current-condition">
+                                    <i class="fa-regular fa-snowflake"></i>
+                                </div>
+                                <div class="live-temp">
+                                    <span id="current_temp">-2°C</span>
+                                    </i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hourly-card">
+                            <div class="hours">
+                                <div class="time">
+                                    <span id="time">Time</span>
+                                </div>
+                                <hr>
+                                <div class="current-condition">
+                                    <i class="fa-regular fa-snowflake"></i>
+                                </div>
+                                <div class="live-temp">
+                                    <span id="current_temp">-2°C</span>
+                                    </i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hourly-card">
+                            <div class="hours">
+                                <div class="time">
+                                    <span id="time">Time</span>
+                                </div>
+                                <hr>
+                                <div class="current-condition">
+                                    <i class="fa-regular fa-snowflake"></i>
+                                </div>
+                                <div class="live-temp">
+                                    <span id="current_temp">-2°C</span>
+                                    </i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hourly-card">
+                            <div class="hours">
+                                <div class="time">
+                                    <span id="time">Time</span>
+                                </div>
+                                <hr>
+                                <div class="current-condition">
+                                    <i class="fa-regular fa-snowflake"></i>
+                                </div>
+                                <div class="live-temp">
+                                    <span id="current_temp">-2°C</span>
+                                    </i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hourly-card">
+                            <div class="hours">
+                                <div class="time">
+                                    <span id="time">Time</span>
+                                </div>
+                                <hr>
+                                <div class="current-condition">
+                                    <i class="fa-regular fa-snowflake"></i>
+                                </div>
+                                <div class="live-temp">
+                                    <span id="current_temp">-2°C</span>
+                                    </i>
+                                </div>
+                            </div>
+                        </div> -->
+                            </div>
+
+
+
+
+
+
+                            //////////////////////////
+
+
+
+
+
+                            // //collect hourly forecast for 8 hours beginning by your current hour
+                            // const forecastHourlyResponse = await axios.get(`${forecastURL}?lat=${lat}&lon=${lon}&units=metric&appid=${yourAPIKey}`); // 8 HOURS FORECAST API CALL
+                            // const hourlyData = forecastHourlyResponse.data;
+                            // const hourlyForecasts = []; // hourly forecast function to retrieve DATA from the API
+                            // hourlyData.list.slice(0, 6).forEach(item => {
+                            //    const hour = new Date(item.dt * 1000).getHours();
+                            //    hourlyForecasts.push({
+                            //       hourlyForcastData: hour,
+                            //       minimumHourlyTemp: item.main.temp_min,
+                            //       maximumHourlyTemp: item.main.temp_max,
+                            //       weatherDesc: item.weather[0].description,
+                            //       weatherId: item.weather[0].id,
+                            //       weatherIcons: item.weather[0].icon,
+                            //    });
+                            // });
