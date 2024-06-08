@@ -3,143 +3,155 @@
 
     <section class="app_section">
         <div class="app_container">
-            <div class="side-card"> <!-- side search bar with current temp and 6 day forecast -->
-                <div class="search-bar">
-                    <form class="search" action="/search" method="post">
-                        <i class="fa-sharp fa-solid fa-location-dot"></i>
-                        <input type="text" placeholder="Search for a location" name="input" id="search-input">
-                        <button class="search-button" type="submit"><i
-                                class="fa-solid fa-magnifying-glass"></i></button>
-                    </form>
+            <% if (locals.error) { %>
+                <div class="error">
+                    <h4>
+                        <%= error %>
+                    </h4>
                 </div>
-                <% if (locals.error) { %>
-                    <div class="error">
-                        <h4>
-                            <%= error %>
-                        </h4>
-                    </div>
-                    <% } %>
-                        <% if (locals.currentWeather){ %>
-                            <div class="top_results"> <!-- results you get after the search  -->
-                                <div class="city_name">
-                                    <span id="city">
-                                        <%= city %>,
-                                    </span> <span id="country">
-                                        <%= country %>
-                                    </span>
-                                </div>
-                                <div class="current_temp">
-                                    <span id="current_temp">
-                                        <%= Math.round(temp) %>&deg;C
-                                    </span>
-                                </div>
-                                <div class="min_max_temp">
-                                    <span id="minTemperature"><i class="fa-solid fa-temperature-low"></i>
-                                        <%= Math.round(minTemp)%>&deg;C
-                                    </span> <span>|</span> <span id="maxTemperature"><i
-                                            class="fa-solid fa-temperature-high"></i>
-                                        <%= Math.round(maxTemp) %>&deg;C
-                                    </span>
-                                </div>
-                                <div class="wind_speed">
-                                    <span><i class="fa-solid fa-wind fa-beat-fade"></i><span id="windDirection">
-                                            <%= windDir %>,<span id="windSpeed">
-                                                    <%= Math.round(windSp) %> Km/h
+                <% } %>
+                    <div class="search-container"> <!-- side search bar with current temp and 6 day forecast -->
+                        <div class="search-bar">
+                            <form class="search" action="/search" method="post">
+                                <i class="fa-sharp fa-solid fa-location-dot"></i>
+                                <input type="text" placeholder="Search for a location" name="input" id="search-input">
+                                <button class="search-button" type="submit"><i
+                                        class="fa-solid fa-magnifying-glass"></i></button>
+                            </form>
+                        </div>
+                       
+                                <% if (locals.currentWeather){ %>
+                                    <div class="side-card">
+                                        <div class="top_results"> <!-- results you get after the search  -->
+                                            <div class="city_name">
+                                                <span id="city">
+                                                    <%= city %>,
                                                 </span>
-                                        </span></span>
-                                </div>
-                                <div class="pressure_humidity">
-                                    <span id="pressure">Pressure: <%= Math.round(pres) %> hPa</span> <span>|</span>
-                                    <span id="humidity">Humidity: <%= Math.round(humi) %> %</span>
+                                                <span id="country">
+                                                    <%= country %>
+                                                </span>
+                                            </div>
+                                            <div class="current_temp">
+                                                <span id="current_temp">
+                                                    <%= Math.round(temp) %>&deg;C
+                                                </span>
+                                            </div>
+                                            <div class="min_max_temp">
+                                                <span id="minTemperature"><i class="fa-solid fa-temperature-low"></i>
+                                                    <%= Math.round(minTemp)%>&deg;C
+                                                </span>
+                                                <span>|</span>
+                                                <span id="maxTemperature"><i class="fa-solid fa-temperature-high"></i>
+                                                    <%= Math.round(maxTemp) %>&deg;C
+                                                </span>
+                                            </div>
+                                            <div class="wind_speed">
+                                                <span><i class="fa-solid fa-wind fa-beat-fade"></i>
+                                                    <span id="windDirection">
+                                                        <%= windDir %>,<span id="windSpeed"></span>
+                                                    </span>
+                                                </span>
+                                            </div>
+                                            <div class="pressure_humidity">
+                                                <span id="pressure">Pressure: <%= Math.round(pres) %> hPa</span>
+                                                <span>|</span>
+                                                <span id="humidity">Humidity: <%= Math.round(humi) %> %</span>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <h4>6 DAYS FORECAST</h4>
+                                        <% } %>
+                                            <% if (locals.forecastDailyData) { %>
+                                                <form class="days_forecast">
+                                                    <% forecastDailyData.forEach(function(day, index) { %>
+                                                        <div class="day">
+                                                            <img src="https://openweathermap.org/img/wn/<%= day.weatherIcons %>@2x.png"
+                                                                alt="weather icon"></img>
+                                                            <div class="dayAndCondition">
+                                                                <div class="day_date">
+                                                                    <span id="day<%= index + 1 %>">
+                                                                        <%= day.dateDailyForecast %>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="day_condition">
+                                                                    <span id="daily-Condition">
+                                                                        <%= day.weatherDesc %>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="dailyTemp">
+                                                                <div class="min_temp">
+                                                                    <Span id="min-Temp">
+                                                                        <%= Math.round(day.minimumDailyTemp) %>&deg;C
+                                                                    </Span>
+                                                                </div>
+                                                                <div class="max_temp">
+                                                                    <Span id="max-Temp">
+                                                                        <%= Math.round(day.maximumDailyTemp) %>&deg;C
+                                                                    </Span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <% }); %>
+                                                </form>
+                                    </div>
+                                    <% } %>
+                    </div>
+                    <div class="hourly-conditions"> <!-- current conditions and 9 hours forecast -->
+                        <div class="greet_clock">
+                            <div class="greeting-container"> <!-- greeting message using external JS function-->
+                                <span class="greet"></span>
+                            </div>
+                            <div class="clock_container">
+                                <div class="clock">
+                                    <span class="clock_date"></span>
+                                    <span class="clock_time"></span>
                                 </div>
                             </div>
+                        </div>
+                        <% if (!locals.currentWeather) { %>
+                            <div class="search-invite"> <!-- '!locals.currentWeather' means locals.currentWeather is null the H3 message will be displayed-->
+                                <span>Welcome! Please search for a city to get the latest weather updates.</span>
+                            </div>
+                            <% } %>
+                        <% if (locals.currentWeather){ %>
+                            <div id="current-condition"><!-- current condition -->
+                                <span id="current-condition">
+                                    <%= currentConditions %>
+                                </span>
+                            </div>
                             <hr>
-                            <h4>6 DAYS FORECAST</h4>
                             <% } %>
 
-                                
-                                <form class="days_forecast">
-                                    
-                                    <% if (locals.forecastDailyData) { %>
-                                        <% forecastDailyData.forEach(function(day, index) { %>
-                                           
-                                            <div class="day">
-                                                <img src="https://openweathermap.org/img/wn/<%= day.weatherIcons %>@2x.png"
-                                                    alt="weather icon"></img>
-                                                <div class="dayAndCondition">
-                                                    <div class="day_date">
-                                                        <span id="day<%= index + 1 %>">
-                                                            <%= day.dateDailyForecast %>
-                                                        </span>
-                                                    </div>
-                                                    <div class="day_condition"><span id="daily-Condition">
-                                                            <%= day.weatherDesc %>
-                                                        </span></div>
+                                <div class="hourly_forecast"> <!-- 9 hours forecast -->
+                                    <% if (locals.forecastHourlyData) { %>
+                                        <% forecastHourlyData.forEach(function(hour, index) { %>
+                                            <div class="hourly-card">
+                                                <div class="time"> <!-- time forecast -->
+                                                    <span id="hour<%= index + 1 %>">
+                                                        <%= hour.hourlyForecastData %>:00
+                                                    </span>
                                                 </div>
-                                                <div class="dailyTemp">
-                                                    <div class="min_temp"><Span id="min-Temp">
-                                                            <%= Math.round(day.minimumDailyTemp) %>&deg;C
-                                                        </Span></div>
-                                                    <div class="max_temp"><Span id="max-Temp">
-                                                            <%= Math.round(day.maximumDailyTemp) %>&deg;C
-                                                        </Span></div>
+                                                <hr>
+                                                <div class="current-condition"> <!-- hourly condition -->
+                                                    <i class="fa-regular fa-snowflake"></i>
                                                 </div>
+                                                <div class="live-temp"> <!-- min & max temps -->
+                                                    <span id="maxHour_temp"><i class="fa-solid fa-temperature-high">
+                                                            <%= Math.round(hour.maximumHourlyTemp) %>&deg;C
+                                                        </i></span>
+                                                </div>
+
                                             </div>
                                             <% }); %>
                                                 <% } %>
-                                </form>
-
-            </div>
-            <div class="hourly-conditions"> <!-- current conditions and 9 hours forecast -->
-                <div class="greet_clock">
-                    <div class="greeting-container"> <!-- greeting message using external JS function-->
-                        <span class="greet"></span>
+                                </div>
                     </div>
-                    <div class="clock_container">
-                        <div class="clock">
-                            <span class="clock_date"></span>
-                            <span class="clock_time"></span>
-                        </div>
-                    </div>
-                </div>
 
-                <% if (locals.currentWeather){ %>
-                    <div id="current-condition"><!-- current condition -->
-                        <span id="current-condition">
-                            <%= currentConditions %>
-                        </span>
-                    </div>
-                    <hr>
-                    <% } %>
-
-                        <div class="hourly_forecast"> <!-- 9 hours forecast -->
-                            <% if (locals.forecastHourlyData) { %>
-                                <% forecastHourlyData.forEach(function(hour, index) { %>
-                                    <div class="hourly-card">
-                                        <div class="time"> <!-- time forecast -->
-                                            <span id="hour<%= index + 1 %>">
-                                                <%= hour.hourlyForecastData %>:00
-                                            </span>
-                                        </div>
-                                        <hr>
-                                        <div class="current-condition"> <!-- hourly condition -->
-                                            <i class="fa-regular fa-snowflake"></i>
-                                        </div>
-                                        <div class="live-temp"> <!-- min & max temps -->
-                                            <span id="maxHour_temp"><i class="fa-solid fa-temperature-high">
-                                                    <%= Math.round(hour.maximumHourlyTemp) %>&deg;C
-                                                </i></span>
-                                        </div>
-
-                                    </div>
-                                    <% }); %>
-                                        <% } %>
-                        </div>
-
-            </div>
+        </div>
 
     </section>
 
     <%- include("../public/js-scripts/clock-script.ejs") %><!-- calling for the Clock JS script> -->
-    <%- include("../public/js-scripts/greetings.ejs") %>    
-    <%- include("partials/footer.ejs") %>
+        <%- include("../public/js-scripts/greetings.ejs") %>
+            <%- include("partials/footer.ejs") %>
