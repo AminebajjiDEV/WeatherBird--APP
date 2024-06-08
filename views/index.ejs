@@ -53,13 +53,16 @@
                                     <span id="humidity">Humidity: <%= Math.round(humi) %> %</span>
                                 </div>
                             </div>
+                            <hr>
+                            <h4>6 DAYS FORECAST</h4>
                             <% } %>
 
-                                <hr>
+                                
                                 <form class="days_forecast">
-                                    <h4>6 DAYS FORECAST</h4>
+                                    
                                     <% if (locals.forecastDailyData) { %>
                                         <% forecastDailyData.forEach(function(day, index) { %>
+                                           
                                             <div class="day">
                                                 <img src="https://openweathermap.org/img/wn/<%= day.weatherIcons %>@2x.png"
                                                     alt="weather icon"></img>
@@ -88,12 +91,18 @@
 
             </div>
             <div class="hourly-conditions"> <!-- current conditions and 9 hours forecast -->
-                <div class="date_clock_container">
-                    <div class="clock">
-                        <span class="clock_date"></span>
-                        <span class="clock_time"></span>
+                <div class="greet_clock">
+                    <div class="greeting-container"> <!-- greeting message using external JS function-->
+                        <span class="greet"></span>
+                    </div>
+                    <div class="clock_container">
+                        <div class="clock">
+                            <span class="clock_date"></span>
+                            <span class="clock_time"></span>
+                        </div>
                     </div>
                 </div>
+
                 <% if (locals.currentWeather){ %>
                     <div id="current-condition"><!-- current condition -->
                         <span id="current-condition">
@@ -102,142 +111,35 @@
                     </div>
                     <hr>
                     <% } %>
-                        <% if (locals.forecastHourlyData) { %>
-                            <% forecastHourlyData.forEach(function(hour, index) { %>
-                                <div class="hourly_forecast"> <!-- 9 hours forecast -->
-                                    <div class="hourly-card">
-                                        <div class="hours">
-                                            <div class="time">
-                                                <span id="hour<%= index + 1 %>">
-                                                    <%= hour.hourlyForecastData %>:00
-                                                </span>
-                                            </div>
-                                            <hr>
-                                            <div class="current-condition">
-                                                <i class="fa-regular fa-snowflake"></i>
-                                            </div>
-                                            <div class="live-temp">
-                                                <span id="current_temp"><i class="fa-solid fa-temperature-low">
-                                                        <%= Math.round(hour.minimumHourlyTemp) %>&deg;C
-                                                    </i></span>
-                                                <span id="current_temp"><i class="fa-solid fa-temperature-high">
-                                                        <%= Math.round(hour.maximumHourlyTemp) %>&deg;C
-                                                    </i></span>
 
-                                            </div>
+                        <div class="hourly_forecast"> <!-- 9 hours forecast -->
+                            <% if (locals.forecastHourlyData) { %>
+                                <% forecastHourlyData.forEach(function(hour, index) { %>
+                                    <div class="hourly-card">
+                                        <div class="time"> <!-- time forecast -->
+                                            <span id="hour<%= index + 1 %>">
+                                                <%= hour.hourlyForecastData %>:00
+                                            </span>
                                         </div>
+                                        <hr>
+                                        <div class="current-condition"> <!-- hourly condition -->
+                                            <i class="fa-regular fa-snowflake"></i>
+                                        </div>
+                                        <div class="live-temp"> <!-- min & max temps -->
+                                            <span id="maxHour_temp"><i class="fa-solid fa-temperature-high">
+                                                    <%= Math.round(hour.maximumHourlyTemp) %>&deg;C
+                                                </i></span>
+                                        </div>
+
                                     </div>
                                     <% }); %>
                                         <% } %>
-                                            <!-- <div class="hourly-card">
-                        <div class="hours">
-                            <div class="time">
-                                <span id="time">Time</span>
-                            </div>
-                            <hr>
-                            <div class="current-condition">
-                                <i class="fa-regular fa-snowflake"></i>
-                            </div>
-                            <div class="live-temp">
-                                <span id="current_temp">-2°C</span>
-                                </i>
-                            </div>
                         </div>
-                    </div>
-                    <div class="hourly-card">
-                        <div class="hours">
-                            <div class="time">
-                                <span id="time">Time</span>
-                            </div>
-                            <hr>
-                            <div class="current-condition">
-                                <i class="fa-regular fa-snowflake"></i>
-                            </div>
-                            <div class="live-temp">
-                                <span id="current_temp">-2°C</span>
-                                </i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hourly-card">
-                        <div class="hours">
-                            <div class="time">
-                                <span id="time">Time</span>
-                            </div>
-                            <hr>
-                            <div class="current-condition">
-                                <i class="fa-regular fa-snowflake"></i>
-                            </div>
-                            <div class="live-temp">
-                                <span id="current_temp">-2°C</span>
-                                </i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hourly-card">
-                        <div class="hours">
-                            <div class="time">
-                                <span id="time">Time</span>
-                            </div>
-                            <hr>
-                            <div class="current-condition">
-                                <i class="fa-regular fa-snowflake"></i>
-                            </div>
-                            <div class="live-temp">
-                                <span id="current_temp">-2°C</span>
-                                </i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hourly-card">
-                        <div class="hours">
-                            <div class="time">
-                                <span id="time">Time</span>
-                            </div>
-                            <hr>
-                            <div class="current-condition">
-                                <i class="fa-regular fa-snowflake"></i>
-                            </div>
-                            <div class="live-temp">
-                                <span id="current_temp">-2°C</span>
-                                </i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hourly-card">
-                        <div class="hours">
-                            <div class="time">
-                                <span id="time">Time</span>
-                            </div>
-                            <hr>
-                            <div class="current-condition">
-                                <i class="fa-regular fa-snowflake"></i>
-                            </div>
-                            <div class="live-temp">
-                                <span id="current_temp">-2°C</span>
-                                </i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hourly-card">
-                        <div class="hours">
-                            <div class="time">
-                                <span id="time">Time</span>
-                            </div>
-                            <hr>
-                            <div class="current-condition">
-                                <i class="fa-regular fa-snowflake"></i>
-                            </div>
-                            <div class="live-temp">
-                                <span id="current_temp">-2°C</span>
-                                </i>
-                            </div>
-                        </div>
-                    </div> -->
-                                </div>
+
             </div>
 
     </section>
 
     <%- include("../public/js-scripts/clock-script.ejs") %><!-- calling for the Clock JS script> -->
-        <%- include("partials/footer.ejs") %>
+    <%- include("../public/js-scripts/greetings.ejs") %>    
+    <%- include("partials/footer.ejs") %>

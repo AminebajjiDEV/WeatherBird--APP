@@ -1,28 +1,24 @@
-/* <! google fonts !> */
-
-@import url("https://fonts.googleapis.com/css2?family=Cute+Font&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&display=swap");
-
 /* // main basic rules */
-* {
 
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* // header  */
+
+
+/* Header */
 .navbar {
     display: flex;
     justify-content: center;
-    background: rgb(0, 141, 218);
-    background: radial-gradient(circle, rgba(0, 141, 218, 1) 0%, rgba(65, 201, 226, 1) 30%, rgba(172, 226, 225, 0.8184407552083334) 70%, rgba(247, 238, 221, 1) 100%);
+    background: transparent;
 }
 
-/* // LOGO */
+/* Logo */
 .applogo {
     cursor: pointer;
-    transition: 0.4s ease;
+    transition: background-color 0.4s ease, border-radius 0.4s ease;
 }
 
 .applogo:hover {
@@ -30,28 +26,19 @@
     border-radius: 60px;
 }
 
-/* // BODY */
-body {
-    min-height: 100vh;
-    background: rgb(0, 141, 218);
-    background: radial-gradient(circle, rgba(0, 141, 218, 1) 0%, rgba(65, 201, 226, 1) 30%, rgba(172, 226, 225, 0.8184407552083334) 70%, rgba(247, 238, 221, 1) 100%);
-}
 
-.main {
+body {
     width: 100%;
     height: 100vh;
-
+    background: url("../images/bg/tst1.jpg") no-repeat center center fixed;
+    background-size: cover;
 }
 
-/* // main app section */
+/* Main App Section */
 .app_section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
-
-
+    margin: 40px auto;
+    width: 95%;
+    height: 100vh;
 }
 
 .app_container {
@@ -59,37 +46,30 @@ body {
     flex-direction: row;
     width: 100%;
     height: 100%;
-    background: rgb(247, 238, 221);
-    background: radial-gradient(circle, rgba(247, 238, 221, 1) 0%, rgba(172, 226, 225, 1) 30%, rgba(0, 141, 218, 1) 70%, rgba(65, 201, 226, 1) 100%);
+    border: solid #ffffffaa;
     border-radius: 20px;
-    border-style: solid;
-    border-color: #4c4c4c;
     box-sizing: border-box;
-
 }
 
-/* //left side bar */
+/* Side Card */
 .side-card {
     display: flex;
     align-items: center;
     flex-direction: column;
     width: 30%;
-    height: 95vh;
-    background: rgb(217, 217, 217, 0.6);
-    box-sizing: border-box;
+    height: 99.5vh;
+    background: rgba(217, 217, 217, 0.6);
     border-radius: 18px;
-    margin-left: 1px;
 }
 
-/* // search bar */
-.search {
 
+.search {
     display: flex;
     align-items: center;
     max-width: max-content;
     padding: 10px;
     border-radius: 20px;
-    background: rgb(220, 220, 220, 0.6);
+    background: rgba(220, 220, 220, 0.6);
     margin: 10px;
 }
 
@@ -101,9 +81,9 @@ body {
 .search-bar input {
     font-size: 16px;
     font-weight: 500;
-    font-family: istok web;
+    font-family: 'Istok Web', sans-serif;
     color: #333333;
-    margin: auto 6px;
+    margin: 0 6px;
     outline: none;
     border: none;
     background: transparent;
@@ -111,7 +91,7 @@ body {
 }
 
 .search-bar i {
-    margin: auto 10px;
+    margin: 0 10px;
     font-size: 25px;
     color: rgba(0, 0, 0, 0.6);
 }
@@ -122,12 +102,13 @@ body {
     border: none;
 }
 
-/* // First Top Results */
+
+/* Top Results */
 .top_results {
     display: flex;
     align-items: center;
     flex-direction: column;
-    font-family: istok web;
+    font-family: 'Istok Web', sans-serif;
     font-weight: 700;
     margin: 5px;
 }
@@ -137,42 +118,39 @@ body {
     color: #585858;
 }
 
-/* // horizontal line */
 .side-card hr {
-    opacity: 80%;
-    min-height: 3px;
+    opacity: 0.8;
+    height: 3px;
     width: 75%;
     margin: 5px auto;
     background: #243627;
 }
-
-/* // 6 DAYS FORECAST */
+/* 6 Days Forecast */
 .days_forecast {
     display: flex;
     align-items: center;
     flex-direction: column;
-    font-family: istok web;
+    font-family: 'Istok Web', sans-serif;
     font-weight: 700;
     margin: 5px 5px 2px 5px;
 }
 
 .day {
-    position: relative;
     display: flex;
-    margin: auto;
     align-items: center;
+    margin: auto;
 }
 
 .day img {
-  width: 20%;
-  height: 100%;
+    width: 20%;
+    height: auto;
 }
 
 .dayAndCondition {
     display: flex;
-    margin: 10px 50px 10px 50px;
     align-items: center;
     flex-direction: column;
+    margin: 10px 50px;
 }
 
 .dailyTemp {
@@ -181,137 +159,153 @@ body {
     flex-direction: column;
 }
 
-/* // hourly conditions and 6 hours forecast */
+
+
+/* Hourly Conditions and Forecast */
 .hourly-conditions {
-    position: relative;
     display: flex;
     flex-direction: column;
-    margin: 1px auto 30px 10px;
-    left: 0;
+    width: 80%;
 }
 
 .hourly-conditions #current-condition {
     font-size: 100px;
     font-weight: 500;
-    font-family: istok web;
+    font-family: 'Istok Web', sans-serif;
+    text-transform: capitalize;
     color: azure;
+    margin:  5px 20px;
     padding-bottom: 5px;
-    margin: auto auto 0 5px;
 }
 
 .hourly-conditions hr {
-    opacity: 80%;
-    min-height: 3px;
-    width: 90%;
+    opacity: 0.8;
+    height: 3px;
+    width: 95%;
     margin: 5px auto;
     background: azure;
 }
 
-/* // hourly forecast  */
-
+/* Hourly Forecast */
 .hourly_forecast {
     display: flex;
     align-items: center;
-    flex-direction: row;
-    margin: 5px;
+    justify-content: space-evenly;
+
 }
 
 .hourly-card {
-    background: rgba(153, 153, 153, 0.4);
-    box-sizing: border-box;
-    border-radius: 10px;
-    margin: 10px;
-}
-
-.hours {
+    position: relative;
+    width: 30%;
     display: flex;
     align-items: center;
     flex-direction: column;
     margin: 20px;
+    background: rgba(153, 153, 153, 0.4);
+    border-radius: 10px;
+    box-sizing: border-box;
 }
 
-.hours hr {
-    opacity: 90%;
-    min-height: 3px;
+.time {
+
+    font-size: 24px;
+    font-weight: 500;
+    font-family: 'Istok Web', sans-serif;
+    color: rgb(219, 255, 255);
+    margin: 8px auto ;
+}
+
+.live-temp {
+    font-size: 24px;
+    font-weight: 500;
+    font-family: 'Istok Web', sans-serif;
+    color: rgb(219, 255, 255);
+    margin: 8px auto 15px;
+}
+
+
+.current-condition {
+    font-size: 60px;
+    color: rgb(219, 255, 255);
+}
+
+hr {
+    opacity: 0.9;
+    height: 3px;
     width: 120%;
     margin: 5px;
     background: #ffffff;
 }
 
-.hours .time {
-    font-size: 24px;
-    font-weight: 500;
-    font-family: istok web;
-    color: rgb(219, 255, 255);
-    margin: 8px auto;
+
+/* Clock & greet message Container  */
+.greet_clock {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+    margin: 20px 100px auto auto;
 }
 
-.hours .current-condition {
-    font-size: 60px;
-    color: rgb(219, 255, 255);
-
-}
-
-.hours .live-temp {
-    font-size: 24px;
-    font-weight: 500;
-    font-family: istok web;
-    color: rgb(219, 255, 255);
-    margin: 5px auto;
-}
-
-/* //clock-date */
-
-.date_clock_container {
-    position: relative;
+.clock_container {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 250px;
     height: 50px;
     background: rgba(0, 0, 0, 0.11);
-    backdrop-filter: blur;
+    backdrop-filter: blur(10px);
     border-radius: 5px;
-    margin: 20px 100px auto auto;
     padding: 0 9px;
-
 }
 
 .clock {
     font-size: 20px;
     font-weight: 600;
-    font-family: Istok Web;
+    font-family: 'Istok Web', sans-serif;
     color: rgb(219, 255, 255);
 }
+
 .clock span {
     margin: 2px;
 }
+.greeting-container {
+    display: flex;
+    align-items: center;
+    margin-right: 100px;
+}
+.greet {
+    text-transform: capitalize;
+    font-size: 20px;
+    font-weight:bolder;
+    font-family: 'Istok Web', sans-serif;
+    color: rgb(219, 255, 255);
+}
 
-/* // footer */
+/* Footer */
 .footer {
-    background: rgb(0, 141, 218);
-    background: radial-gradient(circle, rgba(0, 141, 218, 1) 0%, rgba(65, 201, 226, 1) 30%, rgba(172, 226, 225, 1) 70%, rgba(247, 238, 221, 1) 100%);
+    background: transparent;
     padding: 0.5rem;
-    font-family: istok web;
+    font-family: 'Istok Web', sans-serif;
     font-weight: 700;
     font-size: 20px;
     width: 100%;
-    left: 0;
     position: relative;
     bottom: 0;
-
+    text-align: center;
+    /* Ensure centered text */
 }
 
 .footer a {
     color: #243627;
     text-decoration: none;
-    margin-left: 4px;
-    margin-right: 4px
+    margin: 0 4px;
 }
 
 .footer a:hover {
     color: #ffffff;
-    transition: 0.4s ease;
+    transition: color 0.4s ease;
+    /* Transition only color change */
 }
 
 .footer_container {
@@ -328,8 +322,8 @@ body {
 }
 
 .footer_hr {
-    opacity: 80%;
-    min-height: 3px;
+    opacity: 0.8;
+    height: 3px;
     width: 75%;
     margin: 5px auto;
     background: #243627;
@@ -340,36 +334,24 @@ body {
     display: flex;
     justify-content: center;
     margin-top: 1rem;
-    bottom: 0;
 }
 
-.footer_bottom p {
-    margin: auto 10px;
+.footer_bottom p,
+.footer_bottom a {
+    margin: 0 10px;
     font-size: 17px;
 }
 
 .footer_bottom a {
-    margin: auto 10px;
     font-size: 25px;
     align-items: center;
 }
-
-/* media queries - medium devices 768px */
-
-/* //footer media query */
+/*Media Queries*/
+/* Footer Media Query */
 @media only screen and (max-aspect-ratio: 16/9) {
-
     .footer_links {
         flex-direction: column;
         align-items: center;
-        max-width: 90%;
-        max-height: 90%;
-
-    }
-
-    .footer_links img {
-        order: 1;
-        max-width: 50%;
-        max-height: 50%;
+        max-width: 90
     }
 }

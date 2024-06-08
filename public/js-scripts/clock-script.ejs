@@ -1,6 +1,8 @@
 <script>
     const timeElement = document.querySelector(".clock_time");
     const dateElement = document.querySelector(".clock_date");
+    
+
 
     /** 
     * @param {Date} date
@@ -19,11 +21,14 @@
         return `${date.getDate()} ${MONTHS[date.getMonth()]}, ${date.getFullYear()}`;
     }
 
-    setInterval(() => {
+
+    setInterval(() => { // to update time using an intervale 
         const now = new Date();
 
         timeElement.textContent = formatTime(now);
         dateElement.textContent = formatDate(now);
     }, 200);
 
+
+    setInterval();
 </script>

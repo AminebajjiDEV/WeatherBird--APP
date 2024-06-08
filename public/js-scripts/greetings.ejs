@@ -1,0 +1,23 @@
+<script>
+const greetingContainer = document.querySelector(".greet"); // to target the div directly
+
+const timeNow = new Date().getHours();
+console.log(timeNow) // for debugging
+
+const greeting = 
+timeNow >= 5 && timeNow < 12 
+? "Good Morning"
+: timeNow >= 12 && timeNow < 18
+? "Good Afternoon"
+: "Good Evening"
+console.log(greeting); // for debugging
+
+greetingContainer.innerHTML = `<h1>${greeting}</h1>`  // to display the greeting message in the DOM
+
+
+
+
+
+
+
+</script>
