@@ -29,24 +29,44 @@ This capstone project for my web development bootcamp involves building a websit
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/weather-forecast-app.git
-   cd weather-forecast-app
+   git clone https://github.com/AminebajjiDEV/WeatherBird--APP.git
+   cd weatherbird-APP 
    
 2. Install the dependencies:
    ```sh
    npm install
 
-3. Create a .env file in the root directory and add your OpenWeather API key:
+3. Create a .env file in the root directory and add your OpenWeather API key: (This step is crucial as i didn't upload my personal key)
    ```sh
     API_KEY=your_api_key_here
 
-## Usage/Start the Server
-    npm start
+## Usage
+   #### Start the Server
+    npm start 
+    or
+    nodemon index.js (if you have nodemon installed)
     Open your browser and navigate to http://localhost:3000.
 
 ## Screenshots
+- Home page (With results)
+  
+![App Screenshot](https://github.com/AminebajjiDEV/WeatherBird--APP/blob/main/public/images/Screenshot%202024-08-06%20at%2022-00-11%20WeatherBird.png)
 
-    
+- Home page (Before Results)
+
+![App Screenshot](https://github.com/AminebajjiDEV/WeatherBird--APP/blob/main/public/images/Screenshot%202024-08-07%20at%2000-09-37%20WeatherBird.png)   
+
+- Home page (If there is an Error)
+  
+![App Screenshot](https://github.com/AminebajjiDEV/WeatherBird--APP/blob/main/public/images/Screenshot%202024-08-07%20at%2000-00-42%20WeatherBird.png)
+
+- Mobile Responsiveness
+  
+ ![App Screenshot](https://github.com/AminebajjiDEV/WeatherBird--APP/blob/main/public/images/Screenshot%202024-08-06%20at%2022-02-21%20WeatherBird.png) 
+
+### Check the images forlder for more pictures!
+
+
 ## API Endpoints
 
     POST /search: Fetch weather data for a specific location using the city name.
@@ -113,7 +133,7 @@ javascript
     setInterval();
 ```
 
-License
+## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
    
