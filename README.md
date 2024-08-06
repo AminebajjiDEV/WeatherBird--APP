@@ -73,10 +73,10 @@ This capstone project for my web development bootcamp involves building a websit
 
 ## Technologies Used
 
-    Backend: Node.js, Express
-    HTTP Client: Axios
-    Templating: EJS
-    Frontend: HTML, CSS, JavaScript
+- Backend: Node.js, Express
+- HTTP Client: Axios
+- Templating: EJS
+- Frontend: HTML, CSS, JavaScript
 
 ## Scripts
 
