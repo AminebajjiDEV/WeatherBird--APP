@@ -31,6 +31,16 @@ const getWindDirection = (deg) => { // to identify the wind direction
    return directions[index % 16];
 };
 
+// Function to change icons ending with 'n' to 'd'
+const updateWeatherIcons = (data) => {
+   return data.map(day => {
+     if (day.weatherIcons.endsWith('n')) {
+       day.weatherIcons = day.weatherIcons.replace('n', 'd');
+     }
+     return day;
+   });
+ };
+
 
 app.post("/search", async (req, res) => {
    const city = req.body.input;
@@ -87,7 +97,8 @@ app.post("/search", async (req, res) => {
       //collect hourly forecast for 8 hours beginning by your current hour
       const hourlyForecastResponse = await axios.get(`${forecastURL}?lat=${lat}&lon=${lon}&units=metric&appid=${yourAPIKey}`); // 8 HOURS FORECAST API CALL
       const hourlyData = hourlyForecastResponse.data;
-      const hourlyForecast = []; // hourly forecast function to retrieve DATA from the API
+      const hourlyForecast = []; 
+      // hourly forecast function to retrieve DATA from the API
       hourlyData.list.slice(0, 6).forEach(item => {
          const hour = new Date(item.dt * 1000).getHours();
          hourlyForecast.push({
@@ -100,19 +111,22 @@ app.post("/search", async (req, res) => {
          });
       });
 
-
+    // Update weather icons to daytime icons for days 
+    const updatedDayForecast = updateWeatherIcons(forecastArrayFromTomorrow);
 
       console.log("Daily Forecasts Length:", Object.values(dailyForecasts).length);
       console.log("Daily Forecasts:", dailyForecasts);
       console.log("Hourly Forecasts:", hourlyForecast)
+
+     
 
       res.render("index.ejs", {
          city: cityName,
          country: countryName,
          currentWeather: weatherData, //to define the currentWeatherResponse
          forecast: forecastData, //to define the weatherResponse
-         forecastDailyData: forecastArrayFromTomorrow, // to define the dailyForecastResponse
-         forecastHourlyData: hourlyForecast, // to define the hourlyForecastResponse
+         forecastDailyData: updatedDayForecast, // to define the dailyForecastResponse
+         forecastHourlyData:hourlyForecast, // to define the hourlyForecastResponse
          temp: temperature,
          pres: pressure,
          humi: humidity,
