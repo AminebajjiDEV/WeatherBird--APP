@@ -149,6 +149,13 @@
                                                         <% } %>
                                     </div>
                                 </div>
+                                <div class="popup" id="popup">
+                                    <img src="/images/web.png">
+                                    <h2>Page will be updated soon!</h2>
+                                    <p>Our Team is working hard to update the page as soon as possible.</p>
+                                    <p>Thank you for your patience.</p>
+                                    <button type="button" onclick="closeMessage()">Close Message</button>
+                                </div>
             </div>
         </div>
 
@@ -157,3 +164,4 @@
     <%- include("../public/js-scripts/clock-script.ejs") %><!-- calling for the Clock JS script> -->
         <%- include("../public/js-scripts/greetings.ejs") %>
             <%- include("partials/footer.ejs") %>
+            <%- include("../public/js-scripts/message.ejs") %>

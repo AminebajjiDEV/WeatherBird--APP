@@ -11,7 +11,7 @@ const port = 3000;
 // Please create a .env file with API_kEY = "YOUR OWN API KEY"
 const yourAPIKey = process.env.API_KEY;
 // this API URL is used for locating a city by it's name only and no need for 'lon & lat' coordinates
-const currentWeatherURL = "https://api.openweathermap.org/data/2.5/weather";
+const currentWeatherURL = "https://api.openweathermap.org/data/2.5/weather/";
 // this API URL is used for displaying a daily forecast of 6 days and also hourly forecast while depending on the 'lo & la' collected from currentWeatherURL 
 const forecastURL = "https://api.openweathermap.org/data/2.5/forecast";
 
