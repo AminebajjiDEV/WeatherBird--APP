@@ -2,6 +2,8 @@
 
 This capstone project for my web development bootcamp involves building a website using the Express/Node.js platform and the Axios HTTP client. The website integrates a chosen public API from the Public API Lists, allowing interaction with the API to retrieve data and present it in a user-friendly manner.
 
+### The app is Hosted Live for free on Render.com Please note that the app can be slow when using due to me using the free plan on Render.com!
+
 ## Objectives
     - Develop an understanding of how to integrate public APIs into web projects.    
     - Gain practical experience using Express/Node.js for server-side programming.    
